@@ -1,0 +1,2 @@
+class Backer < User
+end
