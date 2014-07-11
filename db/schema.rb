@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711182830) do
+ActiveRecord::Schema.define(version: 20140711191354) do
+
+  create_table "breakpoints", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "amount"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -20,7 +29,6 @@ ActiveRecord::Schema.define(version: 20140711182830) do
     t.integer  "funds_raised"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "breakpoint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,7 +37,6 @@ ActiveRecord::Schema.define(version: 20140711182830) do
     t.string   "user_name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

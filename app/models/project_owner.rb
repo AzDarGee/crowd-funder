@@ -1,2 +1,0 @@
-class ProjectOwner < User
-end

@@ -1,2 +1,0 @@
-class Backer < User
-end
