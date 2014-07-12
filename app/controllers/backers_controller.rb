@@ -1,0 +1,2 @@
+class BackerController < ApplicationController
+end
