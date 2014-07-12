@@ -1,8 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :projects
-
-
-
-
-
+  self.inheritance_column = :role
 end
