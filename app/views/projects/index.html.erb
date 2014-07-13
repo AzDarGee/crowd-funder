@@ -1,2 +1,10 @@
 <%= link_to("Sign up as a backer", new_backer_path) %>
 <%= link_to("Sign up a project", new_project_owner_path) %>
+<%= link_to("Sign In", new_session_path) %>
+
+
+  <% if current_user.role === "ProjectOwner" %>
+    <div class='new-project'>
+      <h1>CREATE NEW PROJECT</h1>
+    </div>
+  <% end %>

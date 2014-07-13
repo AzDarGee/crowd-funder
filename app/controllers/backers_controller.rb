@@ -5,7 +5,7 @@ class BackersController < ApplicationController
   def create
     @backer = Backer.new(backer_params)
     if @backer.save
-      redirect_to root_path, flash: { notice: '#{backer.user_name} signed up. Start backing some projects!' }
+      redirect_to root_path, flash: { notice: "#{@backer.user_name} signed up. Start backing some projects!" }
     else
       flash.now[:alert] = 'Something went wrong, try again!'
       render :new
