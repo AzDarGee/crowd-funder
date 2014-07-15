@@ -14,6 +14,7 @@ gem 'foundation-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'kaminari'
 gem 'simple_roles'
+gem 'cocoon'
 
 group :development do
   gem 'guard'

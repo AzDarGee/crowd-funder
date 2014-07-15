@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
     def new
     	# so we can use form_for instead of form_tag
     	@project = Project.new
+    	@project.breakpoints.build
     end
     def create
     	@project = Project.new(project_params)
@@ -25,6 +26,6 @@ class ProjectsController < ApplicationController
     end
     private
     def project_params
-    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date)
+    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,breakpoints_attributes: [:amount,:title,:description])
     end
 end

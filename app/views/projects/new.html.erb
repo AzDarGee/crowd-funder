@@ -23,6 +23,15 @@
           <%= f.label :funding_goal %><br />
           <%= f.text_field :funding_goal, placeholder: '$6,000,000' %>
         </div>
+        
+        <p>Rewards: </p>
+        <div class='each-breakpoint'>
+          <%= f.fields_for :breakpoints do |p|  %>
+            <%= render 'breakpoint_fields', :f => p %>
+          <% end %>
+          <%= link_to_add_association 'Add Breakpoint', f, :breakpoints %>
+        </div>
+
         <div class="actions">
           <%= f.submit class: 'button' %>
         </div>
