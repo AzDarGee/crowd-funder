@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
+  
+  # CRUD Actions - for different models
   resources :projects
 
   #Login and SignUp routes
