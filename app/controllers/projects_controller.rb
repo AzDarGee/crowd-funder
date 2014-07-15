@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
       @projects = Project.all
     end
     def new
+    	# so we can use form_for instead of form_tag
     	@project = Project.new
     end
     def create
