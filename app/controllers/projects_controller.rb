@@ -5,12 +5,12 @@ class ProjectsController < ApplicationController
     def new
     	# so we can use form_for instead of form_tag
     	@project = Project.new
-    	@project.breakpoints.build
+    	# @project.breakpoints.build
     end
     def create
     	@project = Project.new(project_params)
     	if @project.save
-    		redirect_to root_path, flash: { notice: 'Project Created!' }
+    		redirect_to projects_path, flash: { notice: 'Project Created!' }
     	else
     		flash.now[:alert] = 'Could not create your project, try again!'
     		render :new
@@ -26,6 +26,6 @@ class ProjectsController < ApplicationController
     end
     private
     def project_params
-    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,breakpoints_attributes: [:amount,:title,:description])
+    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
     end
 end
