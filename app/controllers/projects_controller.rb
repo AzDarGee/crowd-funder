@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     def create
     	@project = Project.new(project_params)
     	if @project.save
-    		redirect_to projects_path, flash: { notice: 'Project Created!' }
+    		redirect_to root_path, flash: { notice: 'Project Created!' }
     	else
     		flash.now[:alert] = 'Could not create your project, try again!'
     		render :new
