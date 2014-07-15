@@ -1,6 +1,11 @@
 class ProjectsController < ApplicationController
     def index
       @projects = Project.all
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
     def new
     	# so we can use form_for instead of form_tag

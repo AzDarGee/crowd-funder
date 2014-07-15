@@ -12,8 +12,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'foundation-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'kaminari'
-gem 'simple_roles'
 gem 'cocoon'
 
 group :development do

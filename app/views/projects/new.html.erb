@@ -6,7 +6,7 @@
   <div class="four columns">
     <h1>New Project</h1>
 
-      <%= form_for @project, :remote => true do |f| %>
+      <%= form_for @project do |f| %>
         <div id="project-form-errors">
           <% if @project.errors.any? %>
             <%= render 'projects/errors' %>
@@ -24,7 +24,7 @@
           <%= f.label :funding_goal %><br />
           <%= f.text_field :funding_goal, placeholder: '$6,000,000' %>
         </div>
-        
+
         <p>Rewards: </p>
         <div class='each-breakpoint'>
           <%= f.fields_for :breakpoints do |p|  %>
@@ -33,11 +33,11 @@
           <%= link_to_add_association 'Add', f, :breakpoints %>
         </div>
         <div class="actions">
-          <%= f.submit class: 'button' %>
+          <%= f.submit 'Save', class: 'button' %>
         </div>
       <% end %>
   </div>
-  
+
   <div class="four columns">
   </div>
 </div>

@@ -1,14 +1,15 @@
 <% if current_user %>
   <%= link_to("Log out", session_path("current"), method: :delete) %>
+
   <% if current_user.role === "ProjectOwner" %>
     <div class='new-project'>
       <h1><%= link_to 'Add Project', new_project_path %></h1>
     </div>
-    
+
     <div class='each-project'>
-			
+
 			<% @projects.each do |project| %>
-      	<h1><%= project.title %></h1>
+      	<h1><%= project.title %> <%= link_to 'Delete', project, method: :delete %></h1>
       	<h2><%= project.description %></h2>
       	<% project.breakpoints.each do |breakpoint| %>
       		<h4><%= breakpoint.title %></h4>
