@@ -25,5 +25,7 @@ group :development do
   gem 'guard-livereload', require: false
   gem "rack-livereload"
   gem 'spring'
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'faker'
 end
