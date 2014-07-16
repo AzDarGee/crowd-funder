@@ -5,7 +5,7 @@ class ProjectOwnersController < ApplicationController
     def create
       @project_owner = ProjectOwner.new(project_owner_params)
       if @project_owner.save
-        redirect_to root_path, flash: { notice: "#{@project_owner.user_name} signed up successfully!" }
+        redirect_to root_path, flash: { notice: "#{@project_owner.name} signed up successfully!" }
       else
         flash.now[:alert] = 'Could not sign you up, refresh and try again!'
         render :new
@@ -18,6 +18,6 @@ class ProjectOwnersController < ApplicationController
     end
     private
     def project_owner_params
-      params.require(:project_owner).permit(:user_name,:email,:password,:password_digest)
+      params.require(:project_owner).permit(:name,:email,:password,:password_digest)
     end
 end

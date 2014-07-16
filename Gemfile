@@ -28,4 +28,5 @@ group :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'faker'
+  gem "binding_of_caller"
 end

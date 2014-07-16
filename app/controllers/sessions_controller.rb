@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       redirect_back_or_to root_path, flash: { :notice => "Logged In!" }
     else
-      flash.now[:alert] = "Could not log in. Try again!"
+      flash.now[:alert] = "Email or password was invalid. Try again!"
       render :new
     end
   end
