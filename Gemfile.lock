@@ -54,6 +54,7 @@ GEM
     foundation-rails (5.3.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    geocoder (1.2.3)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -161,6 +162,7 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.0.0)
   foundation-rails
+  geocoder
   guard
   guard-livereload
   jbuilder (~> 2.0)

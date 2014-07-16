@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'foundation-rails'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'cocoon'
+gem "geocoder"
 
 group :development do
   gem 'guard'
