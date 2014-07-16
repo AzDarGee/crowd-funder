@@ -1,23 +1,28 @@
-<h1>Sign up to be a backer today!</h1>
-
-
-<%= form_for @backer do |f| %>
-
-  <%= render 'errors' %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, placeholder: "User Name" %>
+<div class="row">
+  <div class="four columns"></div>
+  <div class="four columns">
+    <%= form_for @backer do |f| %>
+      <fieldset>
+        <legend><h1>Sign up as a backer</h1></legend>
+        <%= render 'errors' %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: "User Name" %>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email, placeholder: "Email" %>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        </div>
+        <div class="actions"><%= f.submit "Save", class: 'button' %></div>
+      </fieldset>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <div class="field">
-    <%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <div class="field">
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-  </div>
-  <div class="actions"><%= f.submit "Save", class: 'button' %></div>
-<% end %>
+  <div class="four columns"></div>
+</div>
