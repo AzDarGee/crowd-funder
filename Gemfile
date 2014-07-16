@@ -13,6 +13,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # My Stuff
 gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'cancancan', '~> 1.8'
+gem 'carrierwave'
+gem 'ckeditor'
 gem 'cocoon'
 gem 'foundation-rails'
 gem "geocoder"
