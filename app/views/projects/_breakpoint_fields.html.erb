@@ -1,13 +1,15 @@
-<div>
-  <%= f.label :amount %>
-  <%= f.text_field :amount %>
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <%= link_to_remove_association('Delete', f) %>
 </div>
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-<div>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-</div>
-<%= link_to_remove_association('Delete', f) %>
