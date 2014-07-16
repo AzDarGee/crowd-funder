@@ -3,5 +3,5 @@ class ProjectOwner < User
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { in: 8..40 }, confirmation: true
+  validates :password, length: { minimum: 8 }, confirmation: true
 end

@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   # CRUD Actions - for different models
   resources :projects
 
-  #Login and SignUp routes
-  # resources :project_owners, :only => [:new,:create,:destroy]
-  # resources :backers, :only => [:new,:create,:destroy]
-  # resources :sessions, :only => [:new,:create,:destroy]
-  resources :backers
-  resources :project_owners
-  resources :sessions
+  # Login and SignUp routes
+  resources :project_owners, :only => [:new,:create,:destroy]
+  resources :backers, :only => [:new,:create,:destroy]
+  resources :sessions, :only => [:new,:create,:destroy]
 
+  # Custom paths for login/logout/signups
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "backer_signup" => "backers#new", :as => "backers_signup"
