@@ -1,30 +1,32 @@
 <% if current_user %>
+  <%= current_user.name %>
   <%= link_to("Log out", session_path("current"), method: :delete) %>
-
-  <% if current_user.role === "ProjectOwner" %>
-    <div class='new-project'>
-      <h1><%= link_to 'Add Project', new_project_path %></h1>
-    </div>
-
-    <div class='each-project'>
-
-			<% @projects.each do |project| %>
-      	<h1><%= project.title %> <%= link_to 'Delete', project, method: :delete %></h1>
-      	<h2><%= project.description %></h2>
-      	<% project.breakpoints.each do |breakpoint| %>
-      		<h4><%= breakpoint.title %></h4>
-      		<h4><%= breakpoint.amount %></h4>
-      		<h4><%= breakpoint.description %></h4>
-      	<% end %>
-      <% end %>
-
-    </div>
-
-  <% end %>
 <% else %>
   <%= link_to("Sign up as a backer", backers_signup_path) %>
   <%= link_to("Sign up a project", project_owners_signup_path) %>
   <%= link_to("Sign In", login_path) %>
 <% end %>
+
+<div class='new-project'>
+  <h1><%= link_to 'Add Project', new_project_path %></h1>
+</div>
+
+<div class='each-project'>
+
+	<% @projects.each do |project| %>
+  	<h1><%= project.title %> <%= link_to 'Delete', project, method: :delete %></h1>
+  	<h2><%= project.description %></h2>
+  	<% project.breakpoints.each do |breakpoint| %>
+  		<h4><%= breakpoint.title %></h4>
+  		<h4><%= breakpoint.amount %></h4>
+  		<h4><%= breakpoint.description %></h4>
+  	<% end %>
+  <% end %>
+
+</div>
+
+
+
+
 
 

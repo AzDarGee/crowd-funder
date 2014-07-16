@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+    # Before you do anything, check to see if logged in, if not logged in, only has access to 'index' and 'show'
+    before_action :require_login, :except => [:index, :show]
+
     def index
       @projects = Project.all
 
