@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   # Catch all CanCan error and alert the user of the exception
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, flash: { notice: "Please go away, I don't like you. #{exception.message}" }
+    redirect_to root_path, flash: { notice: "#{exception.message}" }
   end
 
   private
