@@ -1,21 +1,29 @@
-<% if can? :create, Project %>
-  <div class='new-project'>
-    <h1><%= link_to 'Add Project', new_project_path %></h1>
+<div class="row">
+  <div class="four columns"></div>
+
+  <div class="four columns">
+
+    <% if can? :create, Project %>
+      <div class='new-project center'>
+        <h1><%= link_to 'Add Project', new_project_path %></h1>
+      </div>
+    <% end %>
+
+    <div class='each-project'>
+      <% @projects.each do |project| %>
+        <h1><%= project.title %> <%= link_to 'Delete', project, method: :delete %></h1>
+        <h2><%= project.description %></h2>
+        <% project.breakpoints.each do |breakpoint| %>
+          <h4><%= breakpoint.title %></h4>
+          <h4><%= breakpoint.amount %></h4>
+          <h4><%= breakpoint.description %></h4>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
-<% end %>
 
-<div class='each-project'>
-
-	<% @projects.each do |project| %>
-  	<h1><%= project.title %> <%= link_to 'Delete', project, method: :delete %></h1>
-  	<h2><%= project.description %></h2>
-  	<% project.breakpoints.each do |breakpoint| %>
-  		<h4><%= breakpoint.title %></h4>
-  		<h4><%= breakpoint.amount %></h4>
-  		<h4><%= breakpoint.description %></h4>
-  	<% end %>
-  <% end %>
-
+  <div class="four columns"></div>
 </div>
 
 
