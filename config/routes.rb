@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "backer_signup" => "backers#new", :as => "backers_signup"
   get "project_owners_signup" => "project_owners#new", :as => "project_owners_signup"
+
+  # Tagging projects
+  get 'tags/:tag', to: 'projects#index', as: :tag
 end

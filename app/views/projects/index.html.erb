@@ -13,6 +13,7 @@
       <% @projects.each do |project| %>
         <h1><%= link_to project.title, project_path(project) %> | <%= link_to 'Delete', project, method: :delete %></h1>
         <h2><%= project.description %></h2>
+        <h3>Tags: <%= project.tags.map(&:title).map { |t| link_to t, tag_path(t) }.join(', ').html_safe %> </h3>
         <% project.breakpoints.each do |breakpoint| %>
           <h4><%= breakpoint.title %></h4>
           <h4><%= breakpoint.amount %></h4>
