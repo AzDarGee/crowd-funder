@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
     	# @project.breakpoints.build
     end
     def show
-
     end
     def create
     	if @project.save
@@ -33,6 +32,6 @@ class ProjectsController < ApplicationController
     end
     private
     def project_params
-    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
+    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,:image,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
     end
 end

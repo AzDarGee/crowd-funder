@@ -18,7 +18,9 @@ gem 'ckeditor'
 gem 'cocoon'
 gem 'foundation-rails'
 gem "geocoder"
+gem "paperclip"
 gem "pg"
+gem 'rmagick'
 gem "sorcery"
 
 

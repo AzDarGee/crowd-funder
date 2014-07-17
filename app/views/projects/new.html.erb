@@ -6,7 +6,7 @@
   <div class="four columns">
     <h1>New Project</h1>
 
-      <%= form_for @project do |f| %>
+      <%= form_for @project, html: {multipart: true} do |f| %>
         <div id="project-form-errors">
           <% if @project.errors.any? %>
             <%= render 'projects/errors' %>
@@ -23,6 +23,9 @@
         <div class="field">
           <%= f.label :funding_goal %><br />
           <%= f.text_field :funding_goal, placeholder: '$6,000,000' %>
+        </div>
+        <div class="field">
+          <%= f.file_field :image, class: 'button' %>
         </div>
 
         <p>Rewards: </p>
