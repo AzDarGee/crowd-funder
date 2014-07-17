@@ -13,6 +13,6 @@ class SessionsController < ApplicationController
   end
   def destroy
     logout
-    redirect_to root_path, :notice => "Logged Out!"
+    redirect_to(root_path, flash: { :notice => "Logged Out!" })
   end
 end

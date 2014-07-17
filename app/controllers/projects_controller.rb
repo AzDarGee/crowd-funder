@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
     # Before you do anything, check to see if logged in, if not logged in, only has access to 'index' and 'show'
     before_action :require_login, :except => [:index, :show]
+    load_and_authorize_resource
 
     def index
       @projects = Project.all
@@ -11,12 +12,12 @@ class ProjectsController < ApplicationController
       end
     end
     def new
-    	# so we can use form_for instead of form_tag
-    	@project = Project.new
     	# @project.breakpoints.build
     end
+    def show
+
+    end
     def create
-    	@project = Project.new(project_params)
     	if @project.save
     		redirect_to root_path, flash: { notice: 'Project Created!' }
     	else
@@ -25,10 +26,8 @@ class ProjectsController < ApplicationController
     	end
     end
     def edit
-    	@project = Project.find(params[:id])
     end
     def destroy
-    	@project = Project.find(params[:id])
     	@project.destroy
     	redirect_to root_path, flash: { notice: 'Deleted project!' }
     end

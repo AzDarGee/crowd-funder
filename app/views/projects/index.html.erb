@@ -7,9 +7,11 @@
   <%= link_to("Sign In", login_path) %>
 <% end %>
 
-<div class='new-project'>
-  <h1><%= link_to 'Add Project', new_project_path %></h1>
-</div>
+<% if can? :create, Project %>
+  <div class='new-project'>
+    <h1><%= link_to 'Add Project', new_project_path %></h1>
+  </div>
+<% end %>
 
 <div class='each-project'>
 
