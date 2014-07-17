@@ -5,8 +5,8 @@ class Ability
 
     user ||= User.new  #Guestuser (not logged in)
 
-    if user.is? User::CREATOR
-        can :manage, Project, user_id: user.id
+    if user.is?(User::CREATOR)
+        can :manage, Project
     elsif user.is? User::BACKER
         can :read, Project
     else
