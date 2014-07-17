@@ -11,7 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# My Stuff
+# My Gems
+gem 'acts-as-taggable-on'
 gem 'cancancan', '~> 1.8'
 gem 'carrierwave'
 gem 'ckeditor'

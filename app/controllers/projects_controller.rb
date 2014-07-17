@@ -4,11 +4,7 @@ class ProjectsController < ApplicationController
     load_and_authorize_resource
 
     def index
-      if params[:tag]
-        @projects = Project.tagged_with(params[:tag]).order(:created_at)
-      else
-        @projects = Project.order(:created_at)
-      end
+      @projects = Project.all
 
       respond_to do |format|
         format.html
