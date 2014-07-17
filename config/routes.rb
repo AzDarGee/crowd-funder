@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/show'
+
+  get 'comments/update'
+
+  get 'comments/edit'
+
+  get 'comments/destroy'
+
   root to: 'projects#index'
 
   # CRUD Actions - for different models

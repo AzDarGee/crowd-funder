@@ -1,0 +1,5 @@
+<% form_for [@commentable, Comment.new] do |f| %>
+  <p><%= f.label :content %></p>
+  <p><%= f.text-area :content %></p>
+  <p><%= f.submit "Save" %></p>
+<% end %>

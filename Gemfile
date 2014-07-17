@@ -20,7 +20,6 @@ gem 'cocoon'
 gem 'foundation-rails'
 gem "geocoder"
 gem "paperclip"
-gem "pg"
 gem 'rmagick'
 gem "sorcery"
 
@@ -34,4 +33,9 @@ group :development do
   gem 'better_errors'
   gem 'faker'
   gem "binding_of_caller"
+end
+
+group :production, :staging do
+  gem "pg"
+  gem "rails_12factor"
 end
