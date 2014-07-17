@@ -1,7 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :load_commentable
+
+
+  before_action :load_project, :load_user
+
+
 
   def index
+    @commentable = find_commentable
     @comments = @commentable.comments
   end
 
@@ -10,7 +15,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @commentable.comments.build(params[:comment])
+    @commentable = find_commentable
+    @comment = @commentable.comments.build(comment_params)
+    @comments = @commentable.comments
     if @comment.save
       redirect_to @commentable, flash: { notice: "Successfully added comment." }
     else
@@ -34,9 +41,25 @@ class CommentsController < ApplicationController
 
   private
 
-    def load_commentable
-      resource, id = request.path.split('/')[1,2]
-      @commentable = resource.singularize.classify.constantize.find(id)
+    def find_commentable
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          return $1.classify.constantize.find(value)
+        end
+      end
+      nil
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content)
+    end
+
+    def load_project
+      @project = Project.find(params[:project_id]) if params[:project_id]
+    end
+
+    def load_user
+      @user = User.find(params[:user_id]) if params[:user_id]
     end
 
 end

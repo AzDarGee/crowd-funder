@@ -1,22 +1,11 @@
 Rails.application.routes.draw do
-  get 'comments/index'
-
-  get 'comments/new'
-
-  get 'comments/create'
-
-  get 'comments/show'
-
-  get 'comments/update'
-
-  get 'comments/edit'
-
-  get 'comments/destroy'
-
   root to: 'projects#index'
 
   # CRUD Actions - for different models
-  resources :projects
+  resources :projects do
+    resources :comments
+    resources :breakpoints, :only => [:create,:destroy,:update,:show]
+  end
 
   # Login and SignUp routes
   resources :project_owners, :only => [:new,:create,:destroy]
@@ -30,5 +19,6 @@ Rails.application.routes.draw do
   get "project_owners_signup" => "project_owners#new", :as => "project_owners_signup"
 
   # Tagging projects
+
 
 end

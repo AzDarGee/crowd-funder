@@ -20,6 +20,7 @@ gem 'cocoon'
 gem 'foundation-rails'
 gem "geocoder"
 gem "paperclip"
+
 gem 'rmagick'
 gem "sorcery"
 
