@@ -18,7 +18,7 @@
         </div>
         <div class="field">
           <%= f.label :description %><br />
-          <%= f.text_area :description, placeholder: 'Be able to measure your brain state and change it accordingly with our software and hardware ... ' %>
+          <%= f.cktext_area :description, :cols => 40, :ckeditor => {:uiColor => '#AADC6E', :toolbar => 'mini'} %>
         </div>
         <div class="field">
           <%= f.label :funding_goal %><br />
