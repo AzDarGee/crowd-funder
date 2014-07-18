@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>New Project</h1>
+  <p>
+    You created a new project. You can see it here:
+
+    <%= link_to @project.title, project_url(@project) %>
+  </p>
+</body>
+</html>

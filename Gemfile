@@ -34,6 +34,7 @@ group :development do
   gem 'better_errors'
   gem 'faker'
   gem "binding_of_caller"
+  gem "letter_opener"
 end
 
 group :production, :staging do

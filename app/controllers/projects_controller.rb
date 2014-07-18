@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
     def create
         @project = current_user.projects.build(project_params)
     	if @project.save
+            UserMailer.project_email(current_user,@project).deliver
     		redirect_to root_path, flash: { notice: 'Project Created!' }
     	else
     		flash.now[:alert] = 'Could not create your project, try again!'
