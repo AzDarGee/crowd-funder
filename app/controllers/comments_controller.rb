@@ -1,11 +1,10 @@
 class CommentsController < ApplicationController
 
-  before_filter :load_commentable
+  before_filter :load_commentable,:load_user,:load_project
 
-  # def index
-
-  #   @comments = @commentable.comments
-  # end
+  def index
+    @comments = @commentable.comments
+  end
 
   def new
     @comment = @commentable.comments.new
@@ -31,6 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
@@ -42,10 +42,8 @@ class CommentsController < ApplicationController
       end
     end
 
-
-
     def comment_params
-      params.require(:comment).permit!
+      params.require(:comment).permit(:content)
     end
 
     def load_project

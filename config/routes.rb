@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   root to: 'projects#index'
 
-  # CRUD Actions - for different models
+  # CRUD Actions
   resources :projects do
     resources :breakpoints, :only => [:create,:destroy,:update,:show]
-    resources :comments
+    resources :comments, :only => [:create,:destroy,:update,:show]
   end
 
 
-
   # Login and SignUp routes
-  resources :project_owners, :only => [:new,:create,:destroy]
+  resources :project_owners, :only => [:new,:create,:destroy,:edit,:update,:show]
   resources :backers, :only => [:new,:create,:destroy]
   resources :sessions, :only => [:new,:create,:destroy]
 

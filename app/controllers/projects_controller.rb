@@ -12,11 +12,9 @@ class ProjectsController < ApplicationController
       end
     end
     def new
-    	# @project.breakpoints.build
     end
     def show
         @breakpoints = @project.breakpoints
-        @project = Project.find(params[:id])
         @commentable = @project
         @comments = @commentable.comments
         @comment = Comment.new
@@ -37,15 +35,6 @@ class ProjectsController < ApplicationController
     end
     private
         def project_params
-        	params.require(:project).permit!
-
-            # (:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,:image,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
-        end
-
-        def load_commentable
-          if params[:project_id]
-            id = params[:project_id]
-            @commentable = Project.find(params[:project_id])
-          end
+        	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,:image,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
         end
 end
