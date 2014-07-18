@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
       end
     end
     def new
+        @project = current_user.projects.build
     end
     def show
         @breakpoints = @project.breakpoints
@@ -20,6 +21,7 @@ class ProjectsController < ApplicationController
         @comment = Comment.new
     end
     def create
+        @project = current_user.projects.build(project_params)
     	if @project.save
     		redirect_to root_path, flash: { notice: 'Project Created!' }
     	else

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # CRUD Actions
   resources :projects do
     resources :breakpoints, :only => [:create,:destroy,:update,:show]
-    resources :comments, :only => [:create,:destroy,:update,:show]
+    resources :comments, :only => [:create,:update,:show]
   end
 
 
@@ -21,5 +21,8 @@ Rails.application.routes.draw do
 
   # Tagging projects
 
+
+  # Comments
+  resources :comments, :only => [:destroy]
 
 end
