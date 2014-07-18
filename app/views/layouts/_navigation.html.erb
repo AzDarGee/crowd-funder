@@ -1,6 +1,6 @@
 <div class="icon-bar five-up">
   <% if current_user %>
-    <%= link_to current_user.name, '#', class: "item" %>
+    <%= link_to current_user.name, root_path, class: "item" %>
     <%= link_to 'Two', '#', class: 'item' %>
     <%= link_to 'Three', '#', class: 'item' %>
     <%= link_to 'Four', '#', class: 'item' %>
@@ -11,8 +11,8 @@
     <%= link_to("Sign up as a backer", backers_signup_path, class: 'item') %>
     <%= link_to("Sign up a project", project_owners_signup_path, class: 'item') %>
     <%= link_to 'Three', '#', class: 'item' %>
-    <%= link_to 'Four', '#', class: 'item' %>
-    <%= link_to("Sign In", login_path, class: 'item') %>
+    <%= link_to 'Sign up', user_path, class: 'item' %>
+    <%= link_to("Log in", login_path, class: 'item') %>
   <% end %>
 </div>
 

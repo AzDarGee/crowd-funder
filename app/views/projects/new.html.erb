@@ -5,7 +5,7 @@
 
   <div class="four columns">
     <h1>New Project</h1>
-
+      <p><%= link_to :Back, :back %></p>
       <%= form_for @project, html: {multipart: true} do |f| %>
         <div id="project-form-errors">
           <% if @project.errors.any? %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   root to: 'projects#index'
 
   # CRUD Actions
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   resources :project_owners, :only => [:new,:create,:destroy,:edit,:update,:show]
   resources :backers, :only => [:new,:create,:destroy]
   resources :sessions, :only => [:new,:create,:destroy]
+  get 'user_sign_in' => "static_pages#choose", :as => "user"
 
   # Custom paths for login/logout/signups
   get "logout" => "sessions#destroy", :as => "logout"
@@ -21,8 +24,5 @@ Rails.application.routes.draw do
 
   # Tagging projects
 
-
-  # Comments
-  resources :comments, :only => [:destroy]
 
 end
