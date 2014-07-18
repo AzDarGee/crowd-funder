@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   # CRUD Actions - for different models
   resources :projects do
-    resources :comments
     resources :breakpoints, :only => [:create,:destroy,:update,:show]
+    resources :comments
   end
+
+
 
   # Login and SignUp routes
   resources :project_owners, :only => [:new,:create,:destroy]

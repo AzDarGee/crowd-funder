@@ -1,8 +1,14 @@
 class Project < ActiveRecord::Base
+
+
   has_many :backers
   belongs_to :project_owner
   has_many :breakpoints
-  has_many :comments, as: :commentable
+  has_many :pledges, through: :breakpoints
+
+
+  # Polymorphic comments
+  has_many :comments, :as => :commentable
 
   # Many breakpoints per project
   accepts_nested_attributes_for :breakpoints, :reject_if => :all_blank, :allow_destroy => true

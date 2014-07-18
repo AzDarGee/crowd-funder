@@ -15,6 +15,11 @@ class ProjectsController < ApplicationController
     	# @project.breakpoints.build
     end
     def show
+        @breakpoints = @project.breakpoints
+        @project = Project.find(params[:id])
+        @commentable = @project
+        @comments = @commentable.comments
+        @comment = Comment.new
     end
     def create
     	if @project.save
@@ -31,7 +36,16 @@ class ProjectsController < ApplicationController
     	redirect_to root_path, flash: { notice: 'Deleted project!' }
     end
     private
-    def project_params
-    	params.require(:project).permit(:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,:image,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
-    end
+        def project_params
+        	params.require(:project).permit!
+
+            # (:title,:description,:funding_goal,:funds_raised,:start_date,:end_date,:image,breakpoints_attributes: [:id,:amount,:title,:description,:_destroy])
+        end
+
+        def load_commentable
+          if params[:project_id]
+            id = params[:project_id]
+            @commentable = Project.find(params[:project_id])
+          end
+        end
 end

@@ -1,23 +1,18 @@
 class CommentsController < ApplicationController
 
+  before_filter :load_commentable
 
-  before_action :load_project, :load_user
+  # def index
 
-
-
-  def index
-    @commentable = find_commentable
-    @comments = @commentable.comments
-  end
+  #   @comments = @commentable.comments
+  # end
 
   def new
     @comment = @commentable.comments.new
   end
 
   def create
-    @commentable = find_commentable
-    @comment = @commentable.comments.build(comment_params)
-    @comments = @commentable.comments
+    @comment = @commentable.comments.new(comment_params)
     if @comment.save
       redirect_to @commentable, flash: { notice: "Successfully added comment." }
     else
@@ -27,7 +22,6 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find(params[:id])
   end
 
   def update
@@ -41,17 +35,17 @@ class CommentsController < ApplicationController
 
   private
 
-    def find_commentable
-      params.each do |name, value|
-        if name =~ /(.+)_id$/
-          return $1.classify.constantize.find(value)
-        end
+    def load_commentable
+      if params[:project_id]
+        id = params[:project_id]
+        @commentable = Project.find(params[:project_id])
       end
-      nil
     end
 
+
+
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit!
     end
 
     def load_project
