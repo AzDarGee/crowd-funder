@@ -1,19 +1,44 @@
-<div class="icon-bar five-up">
-  <% if current_user %>
-    <%= link_to current_user.name, root_path, class: "item" %>
-    <%= link_to 'Two', '#', class: 'item' %>
-    <%= link_to 'Three', '#', class: 'item' %>
-    <%= link_to 'Four', '#', class: 'item' %>
-    <%= link_to "Log out", session_path("current"), method: :delete, class: "item" %>
+<div class="contain-to-grid sticky">
 
-  <% else %>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to "CrowdFunder", root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon">
+        <%= link_to "Menu", '#' %>
+      </li>
+    </ul>
 
-    <%= link_to 'One', root_path, class: 'item' %>
-    <%= link_to 'Two', '#', class: 'item' %>
-    <%= link_to 'Three', '#', class: 'item' %>
-    <%= link_to 'Sign up', user_path, class: 'item' %>
-    <%= link_to "Log in", login_path, class: 'item' %>
-  <% end %>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <input type="text" placeholder="Discover Projects">
+            </div>
+            <div class="large-4 small-3 columns">
+              <%= link_to 'Find', '#', class: 'button expand' %>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="right">
+        <% if current_user %>
+          <li class="has-dropdown"><%= link_to current_user.name, '#' %>
+            <ul class="dropdown">
+              <%= link_to "Log out", session_path("current"), method: :delete %>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Sign in", new_session_path %></li>
+          <li><%= link_to "Register", user_path %></li>
+        <% end %>
+      </ul>
+    </section>
+
+  </nav>
+
 </div>
 
 
