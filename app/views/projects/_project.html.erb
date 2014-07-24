@@ -1,0 +1,8 @@
+<h1><%= link_to project.title, project_path(project) %> | <%= link_to 'Delete', project, method: :delete %></h1>
+<h2><%= project.description.html_safe %></h2>
+<h3>Tags:  </h3>
+<% project.breakpoints.each do |breakpoint| %>
+  <h4><%= breakpoint.title %></h4>
+  <h4><%= breakpoint.amount %></h4>
+  <h4><%= breakpoint.description %></h4>
+<% end %>
