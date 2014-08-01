@@ -19,3 +19,9 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+var logIt = function() {
+    console.log('stfu');
+}
+
+logIt();

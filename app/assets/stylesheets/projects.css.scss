@@ -15,7 +15,14 @@ body {
   border-radius: 10px;
 }
 
-.center {
-  text-align: center;
-}
+.film {
 
+
+    &.constrained {
+        width: 3.333%;
+    }
+
+    &.full-width {
+        width: 100%;
+    }
+}
