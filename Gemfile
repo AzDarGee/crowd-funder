@@ -1,28 +1,27 @@
 source 'https://rubygems.org'
 
 # Rails Stuff
-gem 'rails', '4.1.1'
+gem 'rails', '5.1.4'
 gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'jbuilder'
+gem 'sdoc'
 
 # My Gems
 gem 'acts-as-taggable-on'
-gem 'cancancan', '~> 1.8'
+gem 'cancancan'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'cocoon'
 gem 'foundation-rails'
 gem "geocoder"
 gem "paperclip"
-
-gem 'rmagick'
 gem "sorcery"
+gem "pg"
 
 
 group :development do
@@ -38,6 +37,5 @@ group :development do
 end
 
 group :production, :staging do
-  gem "pg"
   gem "rails_12factor"
 end
